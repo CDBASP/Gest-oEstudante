@@ -90,6 +90,12 @@
     <Compile Include="Meu_BD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AtualizarDeletarEstudante.resx">
+      <DependentUpon>AtualizarDeletarEstudante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormListaDeEstudantes.resx">
       <DependentUpon>FormListaDeEstudantes.cs</DependentUpon>
     </EmbeddedResource>
