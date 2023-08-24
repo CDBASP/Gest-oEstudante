@@ -24,5 +24,10 @@ namespace Gest_oEstudante
             dataGridView1.ReadOnly= true;
             
         }
+
+        private void btnAtualizar(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
