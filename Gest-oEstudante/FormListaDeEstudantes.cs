@@ -39,7 +39,7 @@ namespace Gest_oEstudante
 
         private void dataGridViewLista_DoubleClick(object sender, EventArgs e)
         {
-
+            //Abre o estudante
         }
     }
 }

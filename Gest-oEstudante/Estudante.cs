@@ -14,7 +14,10 @@ namespace Gest_oEstudante
     internal class Estudante
     {
         Meu_BD bancoDeDados = new Meu_BD();
-        private object nascimento;
+
+        public object Comando { get; private set; }
+
+        // private object nascimento;
 
         public bool inserirEstudante(string Nome, string Sobrenome,
             DateTime Nacimento, string Telefone, string Genero, 
@@ -43,12 +46,13 @@ namespace Gest_oEstudante
                 return false;
             }
         }
-        public bool atualizarEstudante (string Nome, string Sobrenome,
+        public bool atualizarEstudante (int id, string Nome, string Sobrenome,
            DateTime Nacimento, string Telefone, string Genero,
            string Endereco, MemoryStream Foto)
         {
             MySqlCommand comando = new MySqlCommand("UPDATE `estudantes` SET `Nome`=@nm,`Sobrenome`=@sbn,`Nascimento`=@nsc,`Genero`=@gen,`Telefone`=@tel,`Endereco`=@end,`Foto`=@fot WHERE `id` = @id",bancoDeDados.getConexao);
 
+            comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             comando.Parameters.Add("@nm", MySqlDbType.VarChar).Value = Nome;
             comando.Parameters.Add("@sbn", MySqlDbType.VarChar).Value = Sobrenome;
             comando.Parameters.Add("@nsc", MySqlDbType.Date).Value = Nacimento;
@@ -69,6 +73,25 @@ namespace Gest_oEstudante
                 return false;
             }
         }
+        public bool deletarEstudante(int id) 
+        {
+            MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes id` WHERE `id` = @studentid");
+            comando.Parameters.Add("studentid", MySqlDbType.Int32).Value = id;
+
+            bancoDeDados.abrirConexao();
+
+            if(comando.ExecuteNonQuery() == 1)
+            {
+                bancoDeDados.fecharConexao();
+                return true;
+            }
+            else
+            {
+                bancoDeDados.fecharConexao();
+                return false;
+            }
+        }
+
         public DataTable getEstudantes(MySqlCommand comando)
         {
             comando.Connection = bancoDeDados.getConexao;

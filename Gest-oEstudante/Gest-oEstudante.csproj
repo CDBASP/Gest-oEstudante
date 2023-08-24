@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtualizarDeletarEstudante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AtualizarDeletarEstudante.Designer.cs">
+      <DependentUpon>AtualizarDeletarEstudante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Estudante.cs" />
     <Compile Include="FormListaDeEstudantes.cs">
