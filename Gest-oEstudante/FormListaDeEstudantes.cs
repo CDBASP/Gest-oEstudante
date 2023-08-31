@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Gest_oEstudante
         {
             InitializeComponent();
         }
-        Estudante estudante= new Estudante();
+        Estudante estudantes= new Estudantes();
         
 
         private void FormListaDeEstudantes_Load(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace Gest_oEstudante
             dataGridViewLista.ReadOnly= true;
             DataGridViewImageColumn colunaDeFotos = new DataGridViewImageColumn();
             dataGridViewLista.RowTemplate.Height= 80;
-            dataGridViewLista.DataSource = estudante.getEstudantes(comando);
+            dataGridViewLista.DataSource = estudantes.getEstudantes(comando);
             colunaDeFotos = (DataGridViewImageColumn)dataGridViewLista.Columns[7];
             colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridViewLista.AllowUserToAddRows= false;
@@ -40,6 +41,35 @@ namespace Gest_oEstudante
         private void dataGridViewLista_DoubleClick(object sender, EventArgs e)
         {
             //Abre o estudante
+            AtualizarDeletarEstudante atualizarDeletarEstudante = new AtualizarDeletarEstudante();
+            atualizarDeletarEstudante.textBoxID.Text = dataGridViewLista.CurrentRow.Cells[0].Value.ToString();
+            atualizarDeletarEstudante.textBoxNome.Text = dataGridViewLista.CurrentRow.Cells[1].Value.ToString();
+            atualizarDeletarEstudante.textBoxSobrenome.Text = dataGridViewLista.CurrentRow.Cells[2].Value.ToString();
+            atualizarDeletarEstudante.dateTimePickerNascimento.Value = (DateTime)dataGridViewLista.CurrentRow.Cells[3].Value;
+           if (dataGridViewLista.CurrentRow.Cells[4].Value.ToString() == "Feminino")
+            {
+                atualizarDeletarEstudante.radioButtonM.Checked = true;
+            }
+           else
+            {
+                atualizarDeletarEstudante.radioButtonF.Checked = true;
+            }
+
+
+            atualizarDeletarEstudante.textBoxTelefone.Text = dataGridViewLista.CurrentRow.Cells[5].Value.ToString();
+            atualizarDeletarEstudante.textBoxEndereco.Text = dataGridViewLista.CurrentRow.Cells[6].Value.ToString();
+
+            //foto
+            byte[] fotoDaLista;
+            fotoDaLista = (byte[])dataGridViewLista.CurrentRow.Cells[7].Value;
+            MemoryStream fotoDoEstudante = new MemoryStream(fotoDaLista);
+            atualizarDeletarEstudante.pictureBoxFoto.Image = Image.FromStream(fotoDoEstudante);
+            atualizarDeletarEstudante.Show();
+        }   
+
+        private void FormListaDeEstudantes_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

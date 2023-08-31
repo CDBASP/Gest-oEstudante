@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Gest_oEstudante
 {
-    internal class Estudante
+    internal class estudantes
     {
         Meu_BD bancoDeDados = new Meu_BD();
 
@@ -19,7 +19,7 @@ namespace Gest_oEstudante
 
         // private object nascimento;
 
-        public bool inserirEstudante(string Nome, string Sobrenome,
+        public bool inserirEstudantes(string Nome, string Sobrenome,
             DateTime Nacimento, string Telefone, string Genero, 
             string Endereco, MemoryStream Foto)
         {
@@ -75,8 +75,8 @@ namespace Gest_oEstudante
         }
         public bool deletarEstudante(int id) 
         {
-            MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes id` WHERE `id` = @studentid");
-            comando.Parameters.Add("studentid", MySqlDbType.Int32).Value = id;
+            MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id` = estudantes");
+            comando.Parameters.Add("estudantes", MySqlDbType.Int32).Value = id;
 
             bancoDeDados.abrirConexao();
 

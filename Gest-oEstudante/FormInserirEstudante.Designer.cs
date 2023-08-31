@@ -87,6 +87,8 @@
             // 
             // dateTimePickerNacimento
             // 
+            this.dateTimePickerNacimento.CustomFormat = "dd/mm/aaaa";
+            this.dateTimePickerNacimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerNacimento.Location = new System.Drawing.Point(123, 91);
             this.dateTimePickerNacimento.Name = "dateTimePickerNacimento";
             this.dateTimePickerNacimento.Size = new System.Drawing.Size(202, 20);

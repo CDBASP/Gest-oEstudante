@@ -66,6 +66,7 @@
             this.Name = "FormListaDeEstudantes";
             this.Text = "FormListaDeEstudantes";
             this.Load += new System.EventHandler(this.FormListaDeEstudantes_Load);
+            this.DoubleClick += new System.EventHandler(this.FormListaDeEstudantes_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).EndInit();
             this.ResumeLayout(false);
 
