@@ -18,7 +18,7 @@ namespace Gest_oEstudante
         {
             InitializeComponent();
         }
-        Estudante estudantes= new Estudantes();
+        Estudante estudantes= new Estudante();
         
 
         private void FormListaDeEstudantes_Load(object sender, EventArgs e)

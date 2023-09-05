@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Gest_oEstudante
 {
-    internal class estudantes
+    internal class Estudante
     {
         Meu_BD bancoDeDados = new Meu_BD();
 

@@ -46,7 +46,7 @@ namespace Gest_oEstudante
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Estudante estudante= new Estudante();
+            Estudante estudante = new Estudante();
             string nome = textboxNome.Text;
             string sobrenome = textboxSobrenome.Text;
             DateTime nacimento = dateTimePickerNacimento.Value;
@@ -72,7 +72,7 @@ namespace Gest_oEstudante
             else if (verificar())
             {
                 pictureFoto.Image.Save(foto, pictureFoto.Image.RawFormat);
-                if (estudante.inserirEstudante(nome, sobrenome, nacimento, telefone, genero, endereco, foto))
+                if (estudante.inserirEstudantes(nome, sobrenome, nacimento, telefone, genero, endereco, foto))
                 {
                     MessageBox.Show("Novo estudante cadastrado", "sucesso!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
