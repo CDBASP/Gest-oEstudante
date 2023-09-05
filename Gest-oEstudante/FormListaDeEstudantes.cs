@@ -44,7 +44,7 @@ namespace Gest_oEstudante
             AtualizarDeletarEstudante atualizarDeletarEstudante = new AtualizarDeletarEstudante();
             atualizarDeletarEstudante.textBoxID.Text = dataGridViewLista.CurrentRow.Cells[0].Value.ToString();
             atualizarDeletarEstudante.textBoxNome.Text = dataGridViewLista.CurrentRow.Cells[1].Value.ToString();
-            atualizarDeletarEstudante.textBoxSobrenome.Text = dataGridViewLista.CurrentRow.Cells[2].Value.ToString();
+            atualizarDeletarEstudante.textBoxSobrenome.Text = dataGridViewLista.CurrentRow.Cells[2] .Value.ToString();
             atualizarDeletarEstudante.dateTimePickerNascimento.Value = (DateTime)dataGridViewLista.CurrentRow.Cells[3].Value;
            if (dataGridViewLista.CurrentRow.Cells[4].Value.ToString() == "Feminino")
             {

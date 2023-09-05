@@ -296,7 +296,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxID);
             this.Name = "AtualizarDeletarEstudante";
-            this.Text = "AtualizarDeletarEstudante";
+            this.Text = "SGA - Editar Estudante";
             this.Load += new System.EventHandler(this.AtualizarDeletarEstudante_Load);
             this.groupBoxGenero.ResumeLayout(false);
             this.groupBoxGenero.PerformLayout();
