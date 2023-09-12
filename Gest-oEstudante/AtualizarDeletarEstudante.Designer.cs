@@ -208,7 +208,7 @@
             this.buttonRemover.TabIndex = 16;
             this.buttonRemover.Text = "Remover";
             this.buttonRemover.UseVisualStyleBackColor = true;
-            this.buttonRemover.Click += new System.EventHandler(this.button2_Click);
+            this.buttonRemover.Click += new System.EventHandler(this.ButonRemover);
             // 
             // buttonConfirmar
             // 

@@ -13,6 +13,8 @@ namespace Gest_oEstudante
 {
     public partial class AtualizarDeletarEstudante : Form
     {
+        Estudante Estudante = new Estudante();
+
         public AtualizarDeletarEstudante()
         {
             InitializeComponent();
@@ -23,8 +25,9 @@ namespace Gest_oEstudante
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButonRemover(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(textBoxID.Text);
 
         }
 
@@ -45,7 +48,7 @@ namespace Gest_oEstudante
 
         private void buttonConfirmar_Click(object sender, EventArgs e)
         {
-            Estudante estudante = new Estudante();
+          // Estudante estudante = new Estudante();
             int id = Convert.ToInt32(textBoxID.Text);
             string nome = textBoxNome.Text;
             string sobrenome = textBoxSobrenome.Text;
@@ -72,7 +75,7 @@ namespace Gest_oEstudante
             else if (verificar())
             {
                 pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
-                if (estudante.atualizarEstudante(id,nome, sobrenome, nacimento, telefone, genero, endereco, foto))
+                if (Estudante.atualizarEstudante(id,nome, sobrenome, nacimento, telefone, genero, endereco, foto))
                 {
                     MessageBox.Show("Informações atualizadas", "sucesso!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
