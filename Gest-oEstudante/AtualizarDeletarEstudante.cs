@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gest_oEstudante
 {
@@ -100,6 +102,41 @@ namespace Gest_oEstudante
                 {
                     return true;
                 }
+            }
+        }
+
+        private void buttonProcurar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBoxID.Text);
+            MySqlCommand comando = new MySqlCommand("SELECT `id`,`nome`,`sobrenome`,`nascimento`,`genero`,`telefone`,`endereco`,`foto` FROM `estudantes id` WHERE `id` =" + id);
+
+
+
+            DataTable tabela = Estudante.getEstudantes(comando);
+
+
+
+            if (tabela.Rows.Count > 0)
+            {
+                textBoxNome.Text = tabela.Rows[0]["nome"].ToString();
+                textBoxSobrenome.Text = tabela.Rows[0]["sobrenome"].ToString();
+                dateTimePickerNascimento.Value = (DateTime)tabela.Rows[0]["nascimento"];
+                textBoxTelefone.Text = tabela.Rows[0]["telefone"].ToString();
+                textBoxEndereco.Text = tabela.Rows[0]["endereco"].ToString();
+                if (tabela.Rows[0]["genero"].ToString() == "Feminino")
+                {
+                    radioButtonF.Checked = true;
+                }
+                else
+                {
+                    radioButtonM.Checked = false;
+                }
+
+
+
+                byte[] fotoDaTabela = (byte[])tabela.Rows[0]["foto"];
+                MemoryStream fotoDaInterface = new MemoryStream(fotoDaTabela);
+                pictureBoxFoto.Image = Image.FromStream(fotoDaInterface);
             }
         }
     }
